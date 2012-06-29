@@ -1,0 +1,6 @@
+use funny_pic;
+drop table if exists tb_pictures;
+drop table if exists tb_small_pictures;
+create table tb_pictures (id int not null auto_increment primary key, source varchar(300) not null, name varchar(100) not null, sha256 varchar(70) not null);
+create table tb_small_pictures (id int not null auto_increment primary key, name varchar(100) not null, sha256 varchar(70) not null);
+show tables;
