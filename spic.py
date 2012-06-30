@@ -29,7 +29,7 @@ def get_small_pic(name):
         new_im.save(path_small_folder+prefix+name,'JPEG')
 
     else:
-        
+        print "Clone pic"        
         im.save(path_small_folder+prefix+name,'JPEG')
     
     return prefix+name

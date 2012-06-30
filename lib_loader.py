@@ -73,12 +73,12 @@ def load_pic(sites,give_url,db):
 
         print "Start download, "+site[0]
 
-#        try:
-        list_url = give_url (site)
-        downloader(list_url,db)
+        try:
+            list_url = give_url (site)
+            downloader(list_url,db)
 
-#        except:
-#            print "NOT CONNECT"
+        except:
+            print "NOT CONNECT"
 
         print "Ok, "+site[0]
 

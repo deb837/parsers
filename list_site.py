@@ -10,5 +10,4 @@ sites_vk = []
 
 sites_vk.append(['nu_art_photo','-29694340'])
 sites_vk.append(['web2diz','-34586882'])
-
 sites_vk.append(['neformalnaya.erotica','-38165659'])
