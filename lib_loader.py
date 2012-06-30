@@ -61,9 +61,8 @@ def downloader(list_url,db):
                 print name_small
 
                 sha256_small = sha256hex(spic.path_small_folder+name_small)
-                
                 mydb.insert_small(db,name_small,sha256_small)
-                
+
                 print "Add in table"
 
 
