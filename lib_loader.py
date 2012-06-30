@@ -73,7 +73,7 @@ def load_pic(sites,give_url,db):
 
         print "Start download, "+site[0]
 
-        try:
+        try:    #ignore 
             list_url = give_url (site)
             downloader(list_url,db)
 
