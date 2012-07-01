@@ -33,7 +33,7 @@ def give_url(site):
         open_sig += i+'='+data[i]
 
     open_sig += secret
- 
+
     sig = hashlib.md5(open_sig).hexdigest()
 
     request = ''

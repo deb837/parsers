@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys 
+import sys
 import urllib2
 import re
 
@@ -30,9 +30,9 @@ def give_url(site):
 
         else:
             match.append(i.group()[first:second])
-                
+
     if (len(match) > 0) and (not match[0].startswith('http://')) :
-        
+
         for i in range(len(match)):
             match[i] = source + match[i]
 
@@ -40,7 +40,7 @@ def give_url(site):
 
 
 def __main__():
-    
+
     for i in give_url(['http://exeypanteleev.com/','a href="i/.*.jpg" rel',8,-5]):
         print i
 

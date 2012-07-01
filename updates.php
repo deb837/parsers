@@ -37,18 +37,18 @@ function all_delete()
 	$username = DB_USER; 
 	$password = DB_PASSWORD; 
 	$dbName = DB_NAME; 
-	$userstable = "tb_pictures";
-	
+	$userstable = "tb_small_pictures";
+    $path = "wp-content/small_pic/";	
     print $password;
 
 	echo "Hello";
 	echo "<p>";
 
-//	$id = 0;
-//	apc_store('current_value', $id);
+	$id = 0;
+	apc_store('current_value', $id);
 
-	$id = apc_fetch('current_value');
-	print $id;
+//	$id = apc_fetch('current_value');
+//	print $id;
 
 
 	$link = mysql_connect($hostname,$username,$password) OR DIE("Не могу создать соединение "); 
@@ -76,13 +76,13 @@ function all_delete()
 	while($row=mysql_fetch_array($res)) {
 
 		$name = $row['name']; 
-		$record = "<img src='parsers/pic/$name'>"; 
+		$record = "<img src='".$path.$name."'>"; 
 
 		$my_post['post_title'] = strval($i);
 		$my_post['post_content'] = $record;				
 
-		print $i; 
-		print $record ;
+//		print $i; 
+
 
 
 //		wp_insert_post( $my_post );

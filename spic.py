@@ -1,8 +1,8 @@
 #!/usr/bin/python
 from PIL import Image
 
-path_folder = '/home/buhal/public_html/pic/'
-path_small_folder =  '/home/buhal/public_html/small_pic/'
+path_folder = '/home/buhal/public_html/wordpress/wp-content/pic/'
+path_small_folder =  '/home/buhal/public_html/wordpress/wp-content/small_pic/'
 
 prefix = 'small_'
 
@@ -24,16 +24,16 @@ def get_small_pic(name):
 #        print new_size
 
         new_im = im.resize(new_size)
-    
+
 #        new_im.show()
         new_im.save(path_small_folder+prefix+name,'JPEG')
 
     else:
-        print "Clone pic"        
+        print "Clone pic"
         im.save(path_small_folder+prefix+name,'JPEG')
-    
+
     return prefix+name
 
 if __name__ == '__main__':
-    
+
     get_small_pic('pic3.jpg')

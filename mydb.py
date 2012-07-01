@@ -37,13 +37,13 @@ def insert(db,source,name, sha256):
 
 def insert_small(db,name, sha256):
     db.query("insert into "+table_small+" (name,sha256) values ('"+name+"','"+sha256+"')")
-    
+
 
 
 if __name__=='__main__':
 
     db = connect()
-    
+
     insert(db,"http://svalko.org/data/2012_06_03_16_06_24_media_tumblr_com_tumblr_m0wpf4rxAo1qzyxjro1_500.jpg","37c79f28-ee65-44c8-a6b0-3e4a4efb477c","aaaaaaaaaaa")
-    
+
     db.close()
