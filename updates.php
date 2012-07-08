@@ -1,4 +1,4 @@
-<?php 
+d<?php 
 
 function all_delete()
 {
@@ -39,24 +39,22 @@ function all_delete()
 	$dbName = DB_NAME; 
 	$userstable = "tb_small_pictures";
     $path = "wp-content/small_pic/";	
-    print $password;
 
-	echo "Hello";
+//	echo "Hello";
 	echo "<p>";
 
-	$id = 0;
-	apc_store('current_value', $id);
+//	$id = 0;
 
-//	$id = apc_fetch('current_value');
-//	print $id;
+	$id = apc_fetch('current_value');
+//	apc_store('current_value', $id);
+
+	print $id;
 
 
 	$link = mysql_connect($hostname,$username,$password) OR DIE("Не могу создать соединение "); 
      	mysql_select_db($dbName) or die(mysql_error());  
 	$query = "SELECT * FROM $userstable where id > $id order by rand()"; 
-
-	print '<p>';
-		print $query;
+//		print $query;
 	print '<p>';
 
 	$res = mysql_query($query) or die(mysql_error()); 
@@ -75,17 +73,24 @@ function all_delete()
 	
 	while($row=mysql_fetch_array($res)) {
 
-		$name = $row['name']; 
-		$record = "<img src='".$path.$name."'>"; 
+		$small_name = $row['name']; 
+        $name = substr($small_name, 6, 36);
+
+        $text = "<div id=\"gallery\"> <a href=\"wp-content/pic/".$name."\"><img src=\"wp-content/small_pic/".$small_name."\"  alt=\"\"/></a> </div>"."
+
+<div class=\"share42init\" data-url=\"http://178.49.201.102/wordpress/wp-content/pic/".$name."\" data-title=\"Funny pic\"></div>
+
+<script type=\"text/javascript\" src=\"/wordpress/js/share42.js\"></script>
+<script type=\"text/javascript\">share42('/wordpress/img/')</script>";
+
+//		$record = "<img src='".$path.$small_name."'>"; 
 
 		$my_post['post_title'] = strval($i);
-		$my_post['post_content'] = $record;				
+		$my_post['post_content'] = $text;				
 
-//		print $i; 
+//        print $text;
 
-
-
-//		wp_insert_post( $my_post );
+		wp_insert_post( $my_post );
 		
 		$i+=1;
 		$size-=1;
