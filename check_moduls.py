@@ -29,6 +29,6 @@ except ImportError:
 try:
     import PIL
 except ImportError:
-    print "uuid"
+    print "PIL"
 
 
